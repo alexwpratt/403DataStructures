@@ -84,9 +84,15 @@ namespace DataStructures
 {
     class Program
     {
+        public static void mainMenu()
+        {
+            Console.WriteLine("1. Stack\n2. Queue\n3. Dictionary\n4. Exit");
+        }
 
-
-
+        public static void stackMenu()
+        {
+            Console.WriteLine("1. Add one time to Stack\n2. Add Huge List of Items to Stack\n3. Display Stack\n4. Delete from Stack\n5. Clear Stack\n6. Search Stack\n7. Return to Main Menu");
+        }
 
         static void Main(string[] args)
         {
@@ -95,7 +101,7 @@ namespace DataStructures
             {
 
                 //display the menu
-
+                mainMenu();
 
 
 
