@@ -84,35 +84,86 @@ namespace DataStructures
 {
     class Program
     {
-        public static void mainMenu()
+
+        //print the main menu
+        public static void printMainMenu()
         {
-            Console.WriteLine("1. Stack\n2. Queue\n3. Dictionary\n4. Exit");
+            Console.WriteLine("1. Stack\n2. Queue\n3. Dictionary\n4. Exit\n");
         }
 
-        public static void stackMenu()
+        //print the menu regarding stacks
+        public static void printStackMenu()
         {
-            Console.WriteLine("1. Add one time to Stack\n2. Add Huge List of Items to Stack\n3. Display Stack\n4. Delete from Stack\n5. Clear Stack\n6. Search Stack\n7. Return to Main Menu");
+            Console.WriteLine("1. Add one time to Stack\n2. Add Huge List of Items to Stack\n3. Display Stack\n4. Delete from Stack\n5. Clear Stack\n6. Search Stack\n7. Return to Main Menu\n");
         }
+
+        //print the menu regarding queues
+        public static void printQueueMenu()
+        {
+            Console.WriteLine("1. Add one time to Queue\n2. Add Huge List of Items to Queue\n3. Display Queue\n4. Delete from Queue\n5. Clear Queue\n6. Search Queue\n7. Return to Main Menu\n");
+        }
+
+        //print the menu regarding dictionary
+        public static void printDictionaryMenu()
+        {
+            Console.WriteLine("1. Add one item to Dictionary\n2. Add Huge List of Items to Dictionary\n3. Display Dictionary\n4. Delete from Dictionary\n5. Clear Dictionary\n6. Search Dictionary\n7. Return to Main Menu\n");
+        }
+
+
 
         static void Main(string[] args)
         {
-            bool bRepeat = true;
-            while (bRepeat)
+            bool bRepeatFullMenu = true, bRepeat = true;
+            int iUserInput = 0;
+
+            //full outer menu loop
+            while (bRepeatFullMenu)
             {
 
-                //display the menu
-                mainMenu();
 
 
+                //main menu input loop
+                bRepeat = true;
+                while (bRepeat)
+                {
+                    //display the main menu
+                    Console.WriteLine("Please make a selection: \n");
+                    printMainMenu();
 
+                    try
+                    {
+                        iUserInput = Convert.ToInt32(Console.ReadLine());
+                        bRepeat = false;
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Please enter a valid integer\n\n");
+                        bRepeat = true;
+                    }
+                }
 
+                switch (iUserInput)
+                {
+                    case 1: // Stack
+                        printStackMenu();
+                        break;
+                    case 2: // queue
+                        printQueueMenu();
+                        break;
+                    case 3: // dictionary
+                        printDictionaryMenu();
+                        break;
+                    case 4: // exit
+                        Console.WriteLine("See you next time!");
+                        bRepeatFullMenu = false;
+                        break;
+                }
 
+                
             }
 
 
-
-
-
+            Console.Read();
         }
     }
 }
