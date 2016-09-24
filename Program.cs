@@ -91,7 +91,6 @@ namespace DataStructures
             Console.WriteLine("1. Stack\n2. Queue\n3. Dictionary\n4. Exit\n");
         }
 
-        
 
 
 
@@ -129,13 +128,13 @@ namespace DataStructures
                 switch (iUserInput)
                 {
                     case 1: // Stack
-                        printStackMenu();
+                        MyStack.printStackMenu();
                         break;
                     case 2: // queue
-                        printQueueMenu();
+                        MyQueue.printQueueMenu();
                         break;
                     case 3: // dictionary
-                        printDictionaryMenu();
+                        MyDictionary.printDictionaryMenu();
                         break;
                     case 4: // exit
                         Console.WriteLine("See you next time!");
