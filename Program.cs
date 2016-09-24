@@ -85,6 +85,215 @@ namespace DataStructures
     class Program
     {
 
+        static void Main(string[] args)
+        {
+            //variables:
+            bool bRepeatFullMenu = true, bRepeatInnerMenu = true;
+            int iMainMenuInput = 0, iInnerMenuInput = 0;
+            Stack<string> my_stack = new Stack<string>();
+            Queue<string> my_queue = new Queue<string>();
+            Dictionary<string, int> my_dictionary = new Dictionary<string, int>();
+
+
+            while (bRepeatFullMenu) //full outer menu loop
+            {
+                //main menu input loop
+                bRepeatFullMenu = true;
+                while (bRepeatFullMenu)
+                {
+                    //display the main menu
+                    Console.WriteLine("Please make a selection: ");
+                    printMainMenu();
+
+                    try
+                    {
+                        iMainMenuInput = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine();
+                        bRepeatFullMenu = false;
+
+                        //confirm inner menu input
+                        if (iMainMenuInput == 1 || iMainMenuInput == 2 || iMainMenuInput == 3)
+                        {
+                            bRepeatInnerMenu = true;
+                        }
+                        else if (iMainMenuInput == 4)
+                        {
+                            Console.WriteLine("See you next time!");
+                            bRepeatFullMenu = false;
+                            bRepeatInnerMenu = false;
+                        }
+                        else
+                        {
+                            bRepeatFullMenu = true;
+                            bRepeatInnerMenu = false;
+                            Console.WriteLine("Please enter a valid choice\n\n");
+                        }
+
+
+                        while (bRepeatInnerMenu) //inner menus input loop
+                        {
+
+                            Console.WriteLine("Please make a selection: ");
+
+                            switch (iMainMenuInput) //print inner menu
+                            {
+                                case 1:
+                                    MyStack.printStackMenu();
+                                    break;
+                                case 2:
+                                    MyQueue.printQueueMenu();
+                                    break;
+                                case 3:
+                                    MyDictionary.printDictionaryMenu();
+                                    break;
+                            }
+                            Console.WriteLine();
+
+                            try
+                            {
+                                iInnerMenuInput = Convert.ToInt32(Console.ReadLine());
+                                Console.WriteLine();
+                                bRepeatInnerMenu = false;
+
+                                //inner loop input handling
+                                switch (iInnerMenuInput)
+                                {
+                                    case 1: // add one item
+
+                                        bRepeatInnerMenu = true;
+                                        switch (iMainMenuInput)
+                                        {
+                                            case 1: // stack
+                                                my_stack = MyStack.addOne(my_stack, "Testing");
+                                                break;
+                                            case 2: // queue
+                                                break;
+                                            case 3: // dictionary
+                                                break;
+                                        }
+
+                                        break;
+                                    case 2: // add huge list of items
+
+                                        bRepeatInnerMenu = true;
+                                        switch (iMainMenuInput)
+                                        {
+                                            case 1: // stack
+                                                my_stack = MyStack.addHugeList(my_stack);
+                                                break;
+                                            case 2: // queue
+                                                break;
+                                            case 3: // dictionary
+                                                break;
+                                        }
+
+                                        break;
+                                    case 3: // display the list
+
+                                        bRepeatInnerMenu = true;
+                                        switch (iMainMenuInput)
+                                        {
+                                            case 1: // stack
+                                                my_stack = MyStack.display(my_stack);
+                                                break;
+                                            case 2: // queue
+                                                break;
+                                            case 3: // dictionary
+                                                break;
+                                        }
+
+                                        break;
+                                    case 4: // delete from the list
+
+                                        bRepeatInnerMenu = true;
+                                        switch (iMainMenuInput)
+                                        {
+                                            case 1: // stack
+                                                my_stack = MyStack.deleteFrom(my_stack, "Delete me");
+                                                break;
+                                            case 2: // queue
+                                                break;
+                                            case 3: // dictionary
+                                                break;
+                                        }
+
+                                        break;
+                                    case 5: // clear the list
+
+                                        bRepeatInnerMenu = true;
+                                        switch (iMainMenuInput)
+                                        {
+                                            case 1: // stack
+                                                my_stack = MyStack.clear(my_stack);
+                                                break;
+                                            case 2: // queue
+                                                break;
+                                            case 3: // dictionary
+                                                break;
+                                        }
+
+                                        break;
+                                    case 6: // search the list
+
+                                        bRepeatInnerMenu = true;
+                                        switch (iMainMenuInput)
+                                        {
+                                            case 1: // stack
+                                                my_stack = MyStack.search(my_stack, "Find me");
+                                                break;
+                                            case 2: // queue
+                                                break;
+                                            case 3: // dictionary
+                                                break;
+                                        }
+
+                                        break;
+                                    case 7: // return to the main menu
+                                        bRepeatInnerMenu = false;
+                                        bRepeatFullMenu = true;
+                                        break;
+                                    default: // entered an integer, but not a valid menu item 1-7
+                                        bRepeatInnerMenu = true;
+                                        Console.WriteLine("Please enter a valid choice\n\n");
+                                        break;
+                                }
+                            }
+                            catch
+                            {
+                                bRepeatInnerMenu = true;
+                                Console.WriteLine("Please enter a valid integer");
+                            }
+
+                            
+
+
+                        } // end of inner menu loop
+
+
+                    }
+                    catch
+                    {
+                        bRepeatFullMenu = true;
+                        Console.WriteLine("Please enter a valid integer");
+                    }
+                }
+
+                
+
+
+
+
+
+            } // end of main menu outer loop
+
+
+            Console.Read();
+        }
+
+
+
+        //other functions:
+
         //print the main menu
         public static void printMainMenu()
         {
@@ -93,60 +302,5 @@ namespace DataStructures
 
 
 
-
-        static void Main(string[] args)
-        {
-            bool bRepeatFullMenu = true, bRepeat = true;
-            int iUserInput = 0;
-
-            //full outer menu loop
-            while (bRepeatFullMenu)
-            {
-
-
-
-                //main menu input loop
-                bRepeat = true;
-                while (bRepeat)
-                {
-                    //display the main menu
-                    Console.WriteLine("Please make a selection: \n");
-                    printMainMenu();
-
-                    try
-                    {
-                        iUserInput = Convert.ToInt32(Console.ReadLine());
-                        bRepeat = false;
-                    }
-                    catch
-                    {
-                        Console.WriteLine("Please enter a valid integer\n\n");
-                        bRepeat = true;
-                    }
-                }
-
-                switch (iUserInput)
-                {
-                    case 1: // Stack
-                        MyStack.printStackMenu();
-                        break;
-                    case 2: // queue
-                        MyQueue.printQueueMenu();
-                        break;
-                    case 3: // dictionary
-                        MyDictionary.printDictionaryMenu();
-                        break;
-                    case 4: // exit
-                        Console.WriteLine("See you next time!");
-                        bRepeatFullMenu = false;
-                        break;
-                }
-
-                
-            }
-
-
-            Console.Read();
-        }
     }
 }

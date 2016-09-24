@@ -1,16 +1,94 @@
-﻿using System;
+﻿/*
+ * Add one item to ... - prompts the user to enter a string and then inserts the input into the data structure.
+
+Add Huge List of Items to ... – first clears the data structure and then generate 2,000 items in the data structure with the value of “New Entry” concatenated with the number. For example, New Entry 1, New Entry 2, New Entry 3. For the dictionary, the key will be the generated string ("New Entry 2") and the value will be the current number (2).
+
+Display ... - display the contents of the data structure. You must use the foreach loop when displaying the data. Handle any errors and inform the user.
+
+Delete from ... - prompt for which item to delete from the structure. Handle any errors and inform the user.
+
+Clear ... - wipe out the contents of the data structure
+
+Search ... - Search for an item in the data structure and return if it was found or not found and how long it took to search. You can create a StopWatch object using code like so:
+
+System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+Google how to start and stop the StopWatch and how to get the elapsed time.
+
+Return ... - Return back to the main menu
+ * 
+ * 
+ * */
+
+using System;
+using System.Collections.Generic;
 
 public class MyStack
 {
-	public MyStack()
-	{
+	public MyStack(){}
 
-	}
 
     //print the menu regarding stacks
     public static void printStackMenu()
     {
         Console.WriteLine("1. Add one time to Stack\n2. Add Huge List of Items to Stack\n3. Display Stack\n4. Delete from Stack\n5. Clear Stack\n6. Search Stack\n7. Return to Main Menu\n");
+    }
+
+    
+    //add one item to the list
+    public static Stack<string> addOne(Stack<string> my_stack, string add_me)
+    {
+        my_stack.Push(add_me);
+        return my_stack;
+    }
+
+    
+    //automatically add 2000 items after clearing the list
+    public static Stack<string> addHugeList(Stack<string> my_stack)
+    {
+        my_stack.Clear();
+        //fix to be 2000 after testing TODO
+        for (int i = 0; i < 20; i++)
+        {
+            my_stack.Push("New Entry " + (i + 1));
+        }
+
+        return my_stack;
+    }
+    
+
+    //display the list
+    public static Stack<string> display(Stack<string> my_stack)
+    {
+        foreach (string item in my_stack)
+        {
+            Console.WriteLine(item);
+        }
+
+        return my_stack;
+    }
+
+
+    //delete one item from the list based on the user entry (name), handle errors (incorrect name entry, name not found)
+    public static Stack<string> deleteFrom(Stack<string> my_stack, string name)
+    {
+        // TODO
+        return my_stack;
+    }
+
+
+    //clear the list
+    public static Stack<string> clear(Stack<string> my_stack)
+    {
+        my_stack.Clear();
+        return my_stack;
+    }
+
+
+    //search for one item and show how long it took to find
+    public static Stack<string> search(Stack<string> my_stack, string name)
+    {
+        // TODO
+        return my_stack;
     }
 
 
