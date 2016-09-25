@@ -90,6 +90,7 @@ namespace DataStructures
             //variables:
             bool bRepeatFullMenu = true, bRepeatInnerMenu = true;
             int iMainMenuInput = 0, iInnerMenuInput = 0;
+            string search_string;
             Stack<string> my_stack = new Stack<string>();
             Queue<string> my_queue = new Queue<string>();
             Dictionary<string, int> my_dictionary = new Dictionary<string, int>();
@@ -133,7 +134,7 @@ namespace DataStructures
                         while (bRepeatInnerMenu) //inner menus input loop
                         {
 
-                            Console.WriteLine("Please make a selection: ");
+                            Console.WriteLine("\nPlease make a selection: ");
 
                             switch (iMainMenuInput) //print inner menu
                             {
@@ -169,6 +170,11 @@ namespace DataStructures
                                             case 2: // queue
                                                 break;
                                             case 3: // dictionary
+                                                Console.WriteLine("Enter the string: ");
+                                                string add_string = Convert.ToString(Console.ReadLine());
+                                                Console.WriteLine("\nEnter the integer value: ");
+                                                int add_int = Convert.ToInt32(Console.ReadLine());
+                                                my_dictionary = MyDictionary.addOne(my_dictionary, add_string, add_int);
                                                 break;
                                         }
 
@@ -199,6 +205,7 @@ namespace DataStructures
                                             case 2: // queue
                                                 break;
                                             case 3: // dictionary
+                                                my_dictionary = MyDictionary.display(my_dictionary);
                                                 break;
                                         }
 
@@ -239,11 +246,19 @@ namespace DataStructures
                                         switch (iMainMenuInput)
                                         {
                                             case 1: // stack
-                                                my_stack = MyStack.search(my_stack, "Find me");
+                                                Console.WriteLine("Enter the value you want to search for:");
+                                                search_string = Convert.ToString(Console.ReadLine());
+                                                my_stack = MyStack.search(my_stack, search_string);
                                                 break;
                                             case 2: // queue
+                                                Console.WriteLine("Enter the value you want to search for:");
+                                                search_string = Convert.ToString(Console.ReadLine());
+                                                my_queue = MyQueue.search(my_queue, search_string);
                                                 break;
                                             case 3: // dictionary
+                                                Console.WriteLine("Enter the value you want to search for:");
+                                                search_string = Convert.ToString(Console.ReadLine());
+                                                my_dictionary = MyDictionary.search(my_dictionary, search_string);
                                                 break;
                                         }
 

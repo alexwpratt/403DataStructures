@@ -20,6 +20,7 @@ Return ... - Return back to the main menu
  * */
 
 using System;
+using System.Collections.Generic;
 
 public class MyDictionary
 {
@@ -31,5 +32,54 @@ public class MyDictionary
     public static void printDictionaryMenu()
     {
         Console.WriteLine("1. Add one item to Dictionary\n2. Add Huge List of Items to Dictionary\n3. Display Dictionary\n4. Delete from Dictionary\n5. Clear Dictionary\n6. Search Dictionary\n7. Return to Main Menu\n");
+    }
+
+    //add one item to the list
+    public static Dictionary<string, int> addOne(Dictionary<string, int> my_dictionary, string add_string, int add_int)
+    {
+        my_dictionary.Add(add_string, add_int);
+        return my_dictionary;
+    }
+
+    //display the dictionary
+    public static Dictionary<string, int> display(Dictionary<string, int> my_dictionary)
+    {
+        Console.WriteLine("Dictionary display results:");
+        foreach (var item in my_dictionary)
+        {
+            Console.WriteLine(item.Key + " " + item.Value + "\n\n");
+        }
+
+        return my_dictionary;
+    }
+
+    //search for one item and show how long it took to find
+    public static Dictionary<string, int> search(Dictionary<string, int> my_dictionary, string name)
+    {
+        System.Diagnostics.Stopwatch Timer = new System.Diagnostics.Stopwatch();
+        bool found = false;
+        Timer.Start();
+
+        foreach(var item in my_dictionary)
+        {
+            if(my_dictionary.ContainsKey(name))
+            {
+                found = true;
+            }
+        }
+        Timer.Stop();
+
+        if(found == true)
+        {
+            Console.WriteLine("\nIt exists! It was found in " + Timer.Elapsed);
+        }
+        else
+        {
+            Console.WriteLine("\nSearch was not successful.");
+        }
+        
+        
+
+        return my_dictionary;
     }
 }

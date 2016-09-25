@@ -20,6 +20,7 @@ Return ... - Return back to the main menu
  * */
 
 using System;
+using System.Collections.Generic;
 
 public class MyQueue
 {
@@ -35,5 +36,25 @@ public class MyQueue
         Console.WriteLine("1. Add one time to Queue\n2. Add Huge List of Items to Queue\n3. Display Queue\n4. Delete from Queue\n5. Clear Queue\n6. Search Queue\n7. Return to Main Menu\n");
     }
 
+    //search for one item and show how long it took to find
+    public static Queue<string> search(Queue<string> my_queue, string name)
+    {
+        System.Diagnostics.Stopwatch Timer = new System.Diagnostics.Stopwatch();
+        Timer.Start();
 
+        bool found = my_queue.Contains(name);
+
+        Timer.Stop();
+
+        if (found == true)
+        {
+            Console.WriteLine("\nIt exists! It was found in " + Timer.Elapsed);
+        }
+        else
+        {
+            Console.WriteLine("\nSearch was not successful.");
+        }
+
+        return my_queue;
+    }
 }

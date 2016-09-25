@@ -83,11 +83,25 @@ public class MyStack
         return my_stack;
     }
 
-
     //search for one item and show how long it took to find
     public static Stack<string> search(Stack<string> my_stack, string name)
     {
-        // TODO
+        System.Diagnostics.Stopwatch Timer = new System.Diagnostics.Stopwatch();
+        Timer.Start();
+
+        bool found = my_stack.Contains(name);
+        
+        Timer.Stop();
+
+        if (found == true)
+        {
+            Console.WriteLine("\nIt exists! It was found in " + Timer.Elapsed);
+        }
+        else
+        {
+            Console.WriteLine("\nSearch was not successful.");
+        }
+
         return my_stack;
     }
 
