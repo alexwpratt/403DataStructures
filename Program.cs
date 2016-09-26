@@ -90,10 +90,10 @@ namespace DataStructures
             //variables:
             bool bRepeatFullMenu = true, bRepeatInnerMenu = true;
             int iMainMenuInput = 0, iInnerMenuInput = 0;
-            string search_string;
             Stack<string> my_stack = new Stack<string>();
             Queue<string> my_queue = new Queue<string>();
             Dictionary<string, int> my_dictionary = new Dictionary<string, int>();
+            string search_string = "", add_string = "", delete_string = "";
 
 
             while (bRepeatFullMenu) //full outer menu loop
@@ -134,7 +134,7 @@ namespace DataStructures
                         while (bRepeatInnerMenu) //inner menus input loop
                         {
 
-                            Console.WriteLine("\nPlease make a selection: ");
+                            Console.WriteLine("Please make a selection: ");
 
                             switch (iMainMenuInput) //print inner menu
                             {
@@ -165,14 +165,19 @@ namespace DataStructures
                                         switch (iMainMenuInput)
                                         {
                                             case 1: // stack
-                                                my_stack = MyStack.addOne(my_stack, "Testing");
+                                                Console.Write("Enter the string: ");
+                                                add_string = Convert.ToString(Console.ReadLine());
+                                                my_stack = MyStack.addOne(my_stack, add_string);
                                                 break;
                                             case 2: // queue
+                                                Console.Write("Enter the string: ");
+                                                add_string = Convert.ToString(Console.ReadLine());
+                                                my_queue = MyQueue.addOne(my_queue, add_string);
                                                 break;
                                             case 3: // dictionary
-                                                Console.WriteLine("Enter the string: ");
-                                                string add_string = Convert.ToString(Console.ReadLine());
-                                                Console.WriteLine("\nEnter the integer value: ");
+                                                Console.Write("Enter the string: ");
+                                                add_string = Convert.ToString(Console.ReadLine());
+                                                Console.Write("\nEnter the integer value: "); // TODO add error handling for the integer conversion
                                                 int add_int = Convert.ToInt32(Console.ReadLine());
                                                 my_dictionary = MyDictionary.addOne(my_dictionary, add_string, add_int);
                                                 break;
@@ -188,8 +193,10 @@ namespace DataStructures
                                                 my_stack = MyStack.addHugeList(my_stack);
                                                 break;
                                             case 2: // queue
+                                                my_queue = MyQueue.addHugeList(my_queue);
                                                 break;
                                             case 3: // dictionary
+                                                my_dictionary = MyDictionary.addHugeList(my_dictionary);
                                                 break;
                                         }
 
@@ -200,12 +207,13 @@ namespace DataStructures
                                         switch (iMainMenuInput)
                                         {
                                             case 1: // stack
-                                                my_stack = MyStack.display(my_stack);
+                                                MyStack.display(my_stack);
                                                 break;
                                             case 2: // queue
+                                                MyQueue.display(my_queue);
                                                 break;
                                             case 3: // dictionary
-                                                my_dictionary = MyDictionary.display(my_dictionary);
+                                                MyDictionary.display(my_dictionary);
                                                 break;
                                         }
 
@@ -216,11 +224,19 @@ namespace DataStructures
                                         switch (iMainMenuInput)
                                         {
                                             case 1: // stack
-                                                my_stack = MyStack.deleteFrom(my_stack, "Delete me");
+                                                Console.Write("Enter the string to delete: ");
+                                                delete_string = Convert.ToString(Console.ReadLine());
+                                                my_stack = MyStack.deleteFrom(my_stack, delete_string);
                                                 break;
                                             case 2: // queue
+                                                Console.Write("Enter the string to delete: ");
+                                                delete_string = Convert.ToString(Console.ReadLine());
+                                                my_queue = MyQueue.deleteFrom(my_queue, delete_string);
                                                 break;
                                             case 3: // dictionary
+                                                Console.Write("Enter the string to delete: ");
+                                                delete_string = Convert.ToString(Console.ReadLine());
+                                                my_dictionary = MyDictionary.deleteFrom(my_dictionary, delete_string);
                                                 break;
                                         }
 
@@ -234,8 +250,10 @@ namespace DataStructures
                                                 my_stack = MyStack.clear(my_stack);
                                                 break;
                                             case 2: // queue
+                                                my_queue = MyQueue.clear(my_queue);
                                                 break;
                                             case 3: // dictionary
+                                                my_dictionary = MyDictionary.clear(my_dictionary);
                                                 break;
                                         }
 
@@ -279,11 +297,7 @@ namespace DataStructures
                                 Console.WriteLine("Please enter a valid integer");
                             }
 
-                            
-
-
                         } // end of inner menu loop
-
 
                     }
                     catch
@@ -293,26 +307,18 @@ namespace DataStructures
                     }
                 }
 
-                
-
-
-
-
-
             } // end of main menu outer loop
-
 
             Console.Read();
         }
 
 
-
-        //other functions:
+        //other functions:------------------------------------------------------------------
 
         //print the main menu
         public static void printMainMenu()
         {
-            Console.WriteLine("1. Stack\n2. Queue\n3. Dictionary\n4. Exit\n");
+            Console.WriteLine("\n1. Stack\n2. Queue\n3. Dictionary\n4. Exit\n");
         }
 
 

@@ -46,8 +46,7 @@ public class MyStack
     public static Stack<string> addHugeList(Stack<string> my_stack)
     {
         my_stack.Clear();
-        //fix to be 2000 after testing TODO
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < 2000; i++)
         {
             my_stack.Push("New Entry " + (i + 1));
         }
@@ -57,22 +56,47 @@ public class MyStack
     
 
     //display the list
-    public static Stack<string> display(Stack<string> my_stack)
+    public static void display(Stack<string> my_stack)
     {
         foreach (string item in my_stack)
         {
             Console.WriteLine(item);
         }
 
-        return my_stack;
+        //return my_stack;
     }
 
 
     //delete one item from the list based on the user entry (name), handle errors (incorrect name entry, name not found)
     public static Stack<string> deleteFrom(Stack<string> my_stack, string name)
     {
-        // TODO
-        return my_stack;
+        Stack<string> new_stack = new Stack<string>();
+        bool bFound = false;
+
+        //copy the stack over to the new stack all the values that don't match the name
+        foreach (string item in my_stack)
+        {
+            if (item != name) //don't add it if it matches
+            {
+                new_stack.Push(item);
+            }
+            else
+            {
+                bFound = true;
+            }
+        }
+
+        //if found, give happy message. if not completed, put out error message
+        if (bFound == true)
+        {
+            Console.WriteLine("Item '" + name + "' removed from the list.\n");
+        }
+        else
+        {
+            Console.WriteLine("Item '" + name + "' not found.\n");
+        }
+        
+        return new_stack;
     }
 
 
@@ -83,6 +107,7 @@ public class MyStack
         return my_stack;
     }
 
+
     //search for one item and show how long it took to find
     public static Stack<string> search(Stack<string> my_stack, string name)
     {
@@ -90,7 +115,7 @@ public class MyStack
         Timer.Start();
 
         bool found = my_stack.Contains(name);
-        
+
         Timer.Stop();
 
         if (found == true)

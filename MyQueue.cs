@@ -22,6 +22,7 @@ Return ... - Return back to the main menu
 using System;
 using System.Collections.Generic;
 
+
 public class MyQueue
 {
 	public MyQueue()
@@ -34,6 +35,77 @@ public class MyQueue
     public static void printQueueMenu()
     {
         Console.WriteLine("1. Add one time to Queue\n2. Add Huge List of Items to Queue\n3. Display Queue\n4. Delete from Queue\n5. Clear Queue\n6. Search Queue\n7. Return to Main Menu\n");
+    }
+
+    //add one item
+    public static Queue<string> addOne(Queue<string> my_queue, string add)
+    {
+        my_queue.Enqueue(add);
+        return my_queue;
+    }
+
+    //automatically add 2000 items after clearing the list in their proper format
+    public static Queue<string> addHugeList(Queue<string> my_queue)
+    {
+        my_queue.Clear();
+        //loop to add 2000 items in the queue
+        for (int iCount = 1; iCount < 2001; iCount++)
+        {
+            my_queue.Enqueue("New Entry " + iCount);
+        }
+        return my_queue;
+    }
+
+
+    //display the list
+    public static void display(Queue<string> my_queue)
+    {
+        foreach (string item in my_queue)
+        {
+            Console.WriteLine(item);
+        }
+
+        //return my_stack;
+    }
+
+    //delete from the list
+    public static Queue<string> deleteFrom(Queue<string> my_queue, string name)
+    {
+        Queue<string> new_queue = new Queue<string>();
+        bool bFound = false;
+
+        //copy the stack over to the new stack all the values that don't match the name
+        foreach (string item in my_queue)
+        {
+            if (item != name) //don't add it if it matches
+            {
+                new_queue.Enqueue(item);
+            }
+            else
+            {
+                bFound = true;
+            }
+        }
+
+        //if found, give happy message. if not completed, put out error message
+        if (bFound == true)
+        {
+            Console.WriteLine("Item '" + name + "' removed from the list.\n");
+        }
+        else
+        {
+            Console.WriteLine("Item '" + name + "' not found.\n");
+        }
+
+        return new_queue;
+    }
+
+
+    //clear the list
+    public static Queue<string> clear(Queue<string> my_queue)
+    {
+        my_queue.Clear();
+        return my_queue;
     }
 
     //search for one item and show how long it took to find
@@ -57,4 +129,5 @@ public class MyQueue
 
         return my_queue;
     }
+
 }
