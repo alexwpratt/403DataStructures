@@ -148,7 +148,6 @@ namespace DataStructures
                                     MyDictionary.printDictionaryMenu();
                                     break;
                             }
-                            Console.WriteLine();
 
                             try
                             {

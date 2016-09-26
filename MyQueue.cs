@@ -41,7 +41,7 @@ public class MyQueue
     public static Queue<string> addOne(Queue<string> my_queue, string add)
     {
         my_queue.Enqueue(add);
-        Console.WriteLine("\nItem '" + add + "' has been added to the list.\n");
+        Console.WriteLine("\nItem '" + add + "' has been added to the Queue.\n");
         return my_queue;
     }
 
@@ -55,7 +55,7 @@ public class MyQueue
             my_queue.Enqueue("New Entry " + iCount);
         }
 
-        Console.WriteLine("\n2000 items added to the list.\n");
+        Console.WriteLine("\n2000 items added to the Queue.\n");
         return my_queue;
     }
 
@@ -67,8 +67,6 @@ public class MyQueue
         {
             Console.WriteLine(item);
         }
-
-        //return my_stack;
     }
 
     //delete from the list
@@ -93,11 +91,11 @@ public class MyQueue
         //if found, give happy message. if not completed, put out error message
         if (bFound == true)
         {
-            Console.WriteLine("Item '" + name + "' removed from the list.\n");
+            Console.WriteLine("Item '" + name + "' removed from the Queue.\n");
         }
         else
         {
-            Console.WriteLine("Item '" + name + "' not found.\n");
+            Console.WriteLine("Item '" + name + "' not found in the Queue.\n");
         }
 
         return new_queue;
@@ -108,7 +106,7 @@ public class MyQueue
     public static Queue<string> clear(Queue<string> my_queue)
     {
         my_queue.Clear();
-        Console.WriteLine("\nList cleared!\n");
+        Console.WriteLine("\nQueue cleared!\n");
         return my_queue;
     }
 

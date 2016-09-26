@@ -38,7 +38,7 @@ public class MyStack
     public static Stack<string> addOne(Stack<string> my_stack, string add_me)
     {
         my_stack.Push(add_me);
-        Console.WriteLine("\nItem '" + add_me + "' has been added to the list.\n");
+        Console.WriteLine("\nItem '" + add_me + "' has been added to the Stack.\n");
         return my_stack;
     }
 
@@ -52,7 +52,7 @@ public class MyStack
             my_stack.Push("New Entry " + (i + 1));
         }
 
-        Console.WriteLine("\n2000 items added to the list.\n");
+        Console.WriteLine("\n2000 items added to the Stack.\n");
         return my_stack;
     }
     
@@ -95,11 +95,11 @@ public class MyStack
         //if found, give happy message. if not completed, put out error message
         if (bFound == true)
         {
-            Console.WriteLine("Item '" + name + "' removed from the list.\n");
+            Console.WriteLine("Item '" + name + "' removed from the Stack.\n");
         }
         else
         {
-            Console.WriteLine("Item '" + name + "' not found.\n");
+            Console.WriteLine("Item '" + name + "' not found in the Stack.\n");
         }
         
         return my_stack;
@@ -110,7 +110,7 @@ public class MyStack
     public static Stack<string> clear(Stack<string> my_stack)
     {
         my_stack.Clear();
-        Console.WriteLine("\nList cleared!\n");
+        Console.WriteLine("\nStack cleared!\n");
         return my_stack;
     }
 

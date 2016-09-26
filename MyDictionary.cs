@@ -38,7 +38,7 @@ public class MyDictionary
     public static Dictionary<string, int> addOne(Dictionary<string, int> my_dictionary, string add_string, int add_int)
     {
         my_dictionary.Add(add_string, add_int);
-        Console.WriteLine("\nItem '" + add_string + "' with a value of '" + add_int + "' has been added to the list.\n");
+        Console.WriteLine("\nItem '" + add_string + "' with a value of '" + add_int + "' has been added to the Dictionary.\n");
         return my_dictionary;
     }
 
@@ -52,7 +52,7 @@ public class MyDictionary
             my_dictionary.Add("New Entry " + iCount, iCount);
         }
 
-        Console.WriteLine("\n2000 items added to the list.\n");
+        Console.WriteLine("\n2000 items added to the Dictionary.\n");
         return my_dictionary;
     }
     
@@ -65,8 +65,6 @@ public class MyDictionary
         {
             Console.WriteLine(item.Key + " " + item.Value);
         }
-
-        //return my_dictionary;
     }
 
 
@@ -92,7 +90,7 @@ public class MyDictionary
         //if found, give happy message. if not completed, put out error message
         if (bFound == true)
         {
-            Console.WriteLine("Item '" + name + "' removed from the list.\n");
+            Console.WriteLine("Item '" + name + "' removed from the Dictionary.\n");
         }
         else
         {
@@ -107,7 +105,7 @@ public class MyDictionary
     public static Dictionary<string, int> clear(Dictionary<string, int> my_dictionary)
     {
         my_dictionary.Clear();
-        Console.WriteLine("\nList cleared!\n");
+        Console.WriteLine("\nDictionary cleared!\n");
         return my_dictionary;
     }
 
