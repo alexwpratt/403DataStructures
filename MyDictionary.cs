@@ -31,7 +31,7 @@ public class MyDictionary
     //print the menu regarding dictionary
     public static void printDictionaryMenu()
     {
-        Console.WriteLine("1. Add one item to Dictionary\n2. Add Huge List of Items to Dictionary\n3. Display Dictionary\n4. Delete from Dictionary\n5. Clear Dictionary\n6. Search Dictionary\n7. Return to Main Menu\n");
+        Console.WriteLine("\n\t1. Add One Item to Dictionary\n\t2. Add Huge List of Items to Dictionary\n\t3. Display Dictionary\n\t4. Delete from Dictionary\n\t5. Clear Dictionary\n\t6. Search Dictionary\n\t7. Return to Main Menu\n");
     }
 
     //add one item to the list

@@ -30,7 +30,7 @@ public class MyStack
     //print the menu regarding stacks
     public static void printStackMenu()
     {
-        Console.WriteLine("1. Add one time to Stack\n2. Add Huge List of Items to Stack\n3. Display Stack\n4. Delete from Stack\n5. Clear Stack\n6. Search Stack\n7. Return to Main Menu\n");
+        Console.WriteLine("\n\t1. Add One Item to Stack\n\t2. Add Huge List of Items to Stack\n\t3. Display Stack\n\t4. Delete from Stack\n\t5. Clear Stack\n\t6. Search Stack\n\t7. Return to Main Menu\n");
     }
 
     
@@ -85,6 +85,12 @@ public class MyStack
                 bFound = true;
             }
         }
+        my_stack.Clear();
+        //flip stack to correct direction
+        foreach (string item in new_stack)
+        {
+            my_stack.Push(item);
+        }
 
         //if found, give happy message. if not completed, put out error message
         if (bFound == true)
@@ -96,7 +102,7 @@ public class MyStack
             Console.WriteLine("Item '" + name + "' not found.\n");
         }
         
-        return new_stack;
+        return my_stack;
     }
 
 

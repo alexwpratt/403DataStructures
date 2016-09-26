@@ -103,7 +103,7 @@ namespace DataStructures
                 while (bRepeatFullMenu)
                 {
                     //display the main menu
-                    Console.WriteLine("Please make a selection: ");
+                    Console.WriteLine("\nPlease make a selection: ");
                     printMainMenu();
 
                     try
@@ -134,7 +134,7 @@ namespace DataStructures
                         while (bRepeatInnerMenu) //inner menus input loop
                         {
 
-                            Console.WriteLine("Please make a selection: ");
+                            Console.WriteLine("\nPlease make a selection: ");
 
                             switch (iMainMenuInput) //print inner menu
                             {
@@ -325,7 +325,7 @@ namespace DataStructures
         //print the main menu
         public static void printMainMenu()
         {
-            Console.WriteLine("\n1. Stack\n2. Queue\n3. Dictionary\n4. Exit\n");
+            Console.WriteLine("\n\t1. Stack\n\t2. Queue\n\t3. Dictionary\n\t4. Exit\n");
         }
 
 
