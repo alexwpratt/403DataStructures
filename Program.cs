@@ -119,7 +119,7 @@ namespace DataStructures
                         }
                         else if (iMainMenuInput == 4)
                         {
-                            Console.WriteLine("See you next time!");
+                            Console.WriteLine("Press Enter to exit...");
                             bRepeatFullMenu = false;
                             bRepeatInnerMenu = false;
                         }
@@ -185,7 +185,7 @@ namespace DataStructures
                                                 }
                                                 catch
                                                 {
-                                                    Console.WriteLine("\nInvalid integer, nothing added to dictionary.\n");
+                                                    Console.WriteLine("\nNothing added to the dictionary (make sure the key is not duplicate and the integer is valid.\n");
                                                 }
                                                 break;
                                         }
@@ -281,7 +281,7 @@ namespace DataStructures
                                                 my_queue = MyQueue.search(my_queue, search_string);
                                                 break;
                                             case 3: // dictionary
-                                                Console.WriteLine("Enter the value you want to search for:");
+                                                Console.WriteLine("Enter the string (key) you want to search for:");
                                                 search_string = Convert.ToString(Console.ReadLine());
                                                 my_dictionary = MyDictionary.search(my_dictionary, search_string);
                                                 break;

@@ -38,6 +38,7 @@ public class MyDictionary
     public static Dictionary<string, int> addOne(Dictionary<string, int> my_dictionary, string add_string, int add_int)
     {
         my_dictionary.Add(add_string, add_int);
+        Console.WriteLine("\nItem '" + add_string + "' with a value of '" + add_int + "' has been added to the list.\n");
         return my_dictionary;
     }
 
@@ -50,6 +51,8 @@ public class MyDictionary
         {
             my_dictionary.Add("New Entry " + iCount, iCount);
         }
+
+        Console.WriteLine("\n2000 items added to the list.\n");
         return my_dictionary;
     }
     
@@ -60,7 +63,7 @@ public class MyDictionary
         Console.WriteLine("Dictionary display results:");
         foreach (var item in my_dictionary)
         {
-            Console.WriteLine(item.Key + " " + item.Value + "\n\n");
+            Console.WriteLine(item.Key + " " + item.Value);
         }
 
         //return my_dictionary;
@@ -104,6 +107,7 @@ public class MyDictionary
     public static Dictionary<string, int> clear(Dictionary<string, int> my_dictionary)
     {
         my_dictionary.Clear();
+        Console.WriteLine("\nList cleared!\n");
         return my_dictionary;
     }
 
