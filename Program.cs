@@ -175,11 +175,18 @@ namespace DataStructures
                                                 my_queue = MyQueue.addOne(my_queue, add_string);
                                                 break;
                                             case 3: // dictionary
-                                                Console.Write("Enter the string: ");
+                                                Console.Write("Enter the string key: ");
                                                 add_string = Convert.ToString(Console.ReadLine());
                                                 Console.Write("\nEnter the integer value: "); // TODO add error handling for the integer conversion
-                                                int add_int = Convert.ToInt32(Console.ReadLine());
-                                                my_dictionary = MyDictionary.addOne(my_dictionary, add_string, add_int);
+                                                try
+                                                {
+                                                    int add_int = Convert.ToInt32(Console.ReadLine());
+                                                    my_dictionary = MyDictionary.addOne(my_dictionary, add_string, add_int);
+                                                }
+                                                catch
+                                                {
+                                                    Console.WriteLine("\nInvalid integer, nothing added to dictionary.\n");
+                                                }
                                                 break;
                                         }
 
